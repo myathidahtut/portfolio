@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mya Thida Htut | Portfolio</title>
+    <style>
+        /* Minimalist Theme Variables */
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --accent: #222222;
+            --border-light: #eeeeee;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Sections & Typography */
+        section {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        /* Experience & Projects Layout */
+        .item-row {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .item-row:last-child {
+            border-bottom: none;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        .tech-tags {
+            margin-top: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            margin: 0 0.4rem 0.4rem 0;
+            background: #f4f4f4;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .item-header { flex-direction: column; }
+            .nav-links { display: none; } /* Kept simple for true minimalism, can add hamburger if needed */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Mya Thida Htut</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Engineering the future<br>of data and software.</h1>
+        <p class="hero-subtitle">
+            I am a Software Project Lead with over 15 years of engineering experience, currently expanding my expertise into Data Science and AI. I build robust systems and lead teams to deliver scalable solutions.
+        </p>
+    </section>
+
+    <section id="about">
+        <h2>Background</h2>
+        <p>With over a decade operating as a Software Project Lead, I specialize in the full software development lifecycle—from requirements gathering and standardizing to deployment. I have extensive experience in Java and PHP programming, alongside strong database management skills (MySQL).</p>
+        <p>Currently based in Berlin, I am pursuing a Master's in Data Science, AI, and Digital Business to bridge the gap between traditional enterprise software architecture and modern machine learning applications.</p>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        
+        <div class="item-row">
+            <div class="item-header">
+                <h3>Team Lead (Open Source)</h3>
+                <span class="date">Feb 2018 — Current</span>
+            </div>
+            <p><strong>Future Hub Company Limited</strong></p>
+            <ul>
+                <li>Organize and conduct steering meetings to discuss project status, bug fixes, and future enhancements.</li>
+                <li>Supervise development teams to ensure tailored, high-quality solutions.</li>
+                <li>Implement code versioning and branching strategies for effective team deployment.</li>
+            </ul>
+        </div>
+
+        <div class="item-row">
+            <div class="item-header">
+                <h3>Senior Developer</h3>
+                <span class="date">2004 — 2014</span>
+            </div>
+            <p><strong>Electronic Service Company Limited</strong></p>
+            <ul>
+                <li>Progressed from Junior to Senior Developer, building enterprise-scale applications primarily in Java and PHP.</li>
+                <li>Led database management, system flow design, and client requirements gathering.</li>
+                <li>Responsible for end-to-end testing, maintenance, and user training.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Selected Projects</h2>
+
+        <div class="item-row">
+            <div class="item-header">
+                <h3>Real Estate Management System</h3>
+                <span class="date">2021 — Current</span>
+            </div>
+            <p>Led the development of a property sales and rental portal for one of Myanmar's largest property developers. Managed business scenarios, test plans, and supervised the core dev team.</p>
+            <div class="tech-tags">
+                <span class="tag">Project Management</span> <span class="tag">Agile</span> <span class="tag">System Design</span>
+            </div>
+        </div>
+
+        <div class="item-row">
+            <div class="item-header">
+                <h3>UNDP Online Ecommerce Platform</h3>
+                <span class="date">2020 — Current</span>
+            </div>
+            <p>Facilitated a UNDP-funded centralized market system for local SMEs in Kachin State. Guided operational and delivery management between stakeholders and developers.</p>
+            <div class="tech-tags">
+                <span class="tag">WooCommerce</span> <span class="tag">WordPress</span> <span class="tag">Stakeholder Management</span>
+            </div>
+        </div>
+
+        <div class="item-row">
+            <div class="item-header">
+                <h3>Point of Sale & Inventory Control</h3>
+                <span class="date">2006 — 2008</span>
+            </div>
+            <p>Developed a comprehensive inventory system covering purchasing, consignments, and transfers. Implemented complex inventory valuation logic including FIFO, LIFO, and Average Cost methods.</p>
+            <div class="tech-tags">
+                <span class="tag">Java</span> <span class="tag">MySQL</span> <span class="tag">Data Logic</span>
+            </div>
+        </div>
+        
+        <div class="item-row">
+            <div class="item-header">
+                <h3>Web-based Banking System</h3>
+                <span class="date">2002 — 2007</span>
+            </div>
+            <p>Built core banking modules encompassing account management, loans, deposits, remittances, and bill payments.</p>
+            <div class="tech-tags">
+                <span class="tag">PHP</span> <span class="tag">Secure Transactions</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="social-links">
+            <a href="mailto:myathidahtut@gmail.com" target="_blank">Email</a>
+            <a href="https://www.linkedin.com/in/mya-thida-htut-62108b48" target="_blank">LinkedIn</a>
+            <a href="https://github.com/myathidahtut" target="_blank">GitHub</a>
+        </div>
+        <p>&copy; <span id="year"></span> Mya Thida Htut. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
