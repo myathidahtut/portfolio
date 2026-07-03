@@ -1,312 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mya Thida Htut | Portfolio</title>
-    <style>
-        /* Minimalist Theme Variables */
-        :root {
-            --bg-color: #ffffff;
-            --text-main: #111111;
-            --text-muted: #555555;
-            --accent: #222222;
-            --border-light: #eeeeee;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-main);
-            color: var(--text-main);
-            background-color: var(--bg-color);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 5%;
-            background: rgba(255, 255, 255, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
-        /* Sections & Typography */
-        section {
-            padding: 5rem 5%;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding-top: 8rem;
-            padding-bottom: 8rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-        }
-
-        /* Experience & Projects Layout */
-        .item-row {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .item-row:last-child {
-            border-bottom: none;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-family: monospace;
-        }
-
-        .tech-tags {
-            margin-top: 1rem;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 0.2rem 0.6rem;
-            margin: 0 0.4rem 0.4rem 0;
-            background: #f4f4f4;
-            color: var(--text-main);
-            font-size: 0.8rem;
-            border-radius: 4px;
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 5%;
-            text-align: center;
-            border-top: 1px solid var(--border-light);
-            margin-top: 4rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .item-header { flex-direction: column; }
-            .nav-links { display: none; } /* Kept simple for true minimalism, can add hamburger if needed */
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mya Thida Htut · Software Engineer &amp; Data Analyst, Berlin</title>
+<meta name="description" content="15+ years building production software. Now building the instruments to read data the same way. Portfolio of data science, ML, and engineering work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Mya Thida Htut</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<div class="grain" aria-hidden="true"></div>
 
-    <section class="hero">
-        <h1>Engineering the future<br>of data and software.</h1>
-        <p class="hero-subtitle">
-            I am a Software Project Lead with over 15 years of engineering experience, currently expanding my expertise into Data Science and AI. I build robust systems and lead teams to deliver scalable solutions.
-        </p>
-    </section>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="#top" class="nav__mark">M.T.H.</a>
+    <ul class="nav__links">
+      <li><a href="#log">Log</a></li>
+      <li><a href="#record">Record</a></li>
+      <li><a href="#instruments">Instruments</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section id="about">
-        <h2>Background</h2>
-        <p>With over a decade operating as a Software Project Lead, I specialize in the full software development lifecycle—from requirements gathering and standardizing to deployment. I have extensive experience in Java and PHP programming, alongside strong database management skills (MySQL).</p>
-        <p>Currently based in Berlin, I am pursuing a Master's in Data Science, AI, and Digital Business to bridge the gap between traditional enterprise software architecture and modern machine learning applications.</p>
-    </section>
+<main id="top">
 
-    <section id="experience">
-        <h2>Experience</h2>
-        
-        <div class="item-row">
-            <div class="item-header">
-                <h3>Team Lead (Open Source)</h3>
-                <span class="date">Feb 2018 — Current</span>
-            </div>
-            <p><strong>Future Hub Company Limited</strong></p>
-            <ul>
-                <li>Organize and conduct steering meetings to discuss project status, bug fixes, and future enhancements.</li>
-                <li>Supervise development teams to ensure tailored, high-quality solutions.</li>
-                <li>Implement code versioning and branching strategies for effective team deployment.</li>
-            </ul>
+  <section class="hero">
+    <div class="hero__plate" data-reveal>
+      <span class="plate__no">No. GH1037827</span>
+      <span class="plate__loc">Berlin, DE</span>
+    </div>
+    <h1 class="hero__title" data-reveal>
+      Mya Thida Htut
+    </h1>
+    <p class="hero__role" data-reveal>Software Engineer transitioning into Data Science &amp; AI</p>
+    <p class="hero__lede" data-reveal>
+      Fifteen years spent building the systems companies run on.
+      Now building the instruments to read what their data says:
+      one measured, published result at a time.
+    </p>
+    <div class="hero__actions" data-reveal>
+      <a href="#log" class="btn btn--primary">Read the log</a>
+      <a href="https://github.com/myathidahtut" class="btn btn--ghost" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="record">
+    <div class="section__head" data-reveal>
+      <h2>Field Record</h2>
+    </div>
+    <div class="record">
+      <p class="record__bio" data-reveal>
+        Over a decade leading development teams and shipping production systems in
+        Java, PHP, and MySQL, including a UNDP-funded e-commerce platform for SMEs
+        in Kachin State and a property sales &amp; rental portal for one of Myanmar's
+        largest developers. Currently in Berlin, pursuing a Master's in Data Science,
+        AI &amp; Digital Business to formalize the move from building software to
+        interrogating the data it produces.
+      </p>
+
+      <ol class="timeline" data-reveal>
+        <li class="timeline__entry">
+          <span class="timeline__date">2018–Present</span>
+          <span class="timeline__role">Team Lead, Open Source</span>
+          <span class="timeline__org">Future Hub Company Limited</span>
+        </li>
+        <li class="timeline__entry">
+          <span class="timeline__date">2004–2014</span>
+          <span class="timeline__role">Senior Developer</span>
+          <span class="timeline__org">Electronic Service Company Limited</span>
+        </li>
+        <li class="timeline__entry">
+          <span class="timeline__date">2025–Present</span>
+          <span class="timeline__role">MSc Data Science, AI &amp; Digital Business</span>
+          <span class="timeline__org">Berlin</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--log" id="log">
+    <div class="section__head" data-reveal>
+      <h2>The Data Log</h2>
+      <p class="section__note">Six entries. Every figure below is a measured result, not a claim.</p>
+    </div>
+
+    <ol class="log">
+
+      <li class="log__entry" data-reveal>
+        <div class="log__meta">
+          <span class="log__index">01</span>
+          <span class="log__tag">NLP · Transformers</span>
         </div>
-
-        <div class="item-row">
-            <div class="item-header">
-                <h3>Senior Developer</h3>
-                <span class="date">2004 — 2014</span>
-            </div>
-            <p><strong>Electronic Service Company Limited</strong></p>
-            <ul>
-                <li>Progressed from Junior to Senior Developer, building enterprise-scale applications primarily in Java and PHP.</li>
-                <li>Led database management, system flow design, and client requirements gathering.</li>
-                <li>Responsible for end-to-end testing, maintenance, and user training.</li>
-            </ul>
+        <div class="log__body">
+          <h3>E-Commerce Review Sentiment</h3>
+          <p>An end-to-end pipeline classifying Amazon reviews as positive, negative,
+             or neutral, comparing a fine-tuned DistilBERT transformer against a
+             TF-IDF + Logistic Regression baseline.</p>
+          <div class="log__viz" aria-hidden="true">
+            <svg viewBox="0 0 220 90" class="viz-bars">
+              <text x="0" y="14" class="viz-label">Accuracy</text>
+              <rect x="0" y="24" width="146" height="16" class="bar bar--primary"/>
+              <text x="152" y="36" class="viz-value">63%</text>
+              <text x="0" y="26" class="viz-sublabel" dy="34">Transformer</text>
+              <rect x="0" y="60" width="128" height="16" class="bar bar--muted"/>
+              <text x="134" y="72" class="viz-value">55%</text>
+              <text x="0" y="62" class="viz-sublabel" dy="34">TF-IDF + LogReg</text>
+            </svg>
+          </div>
+          <div class="log__tools">Python · PyTorch · Hugging Face · spaCy · scikit-learn</div>
         </div>
-    </section>
+        <a class="log__link" href="https://github.com/myathidahtut/ecommerce-review-sentiment-nlp" target="_blank" rel="noopener">Repo ↗</a>
+      </li>
 
-    <section id="projects">
-        <h2>Selected Projects</h2>
-
-        <div class="item-row">
-            <div class="item-header">
-                <h3>Real Estate Management System</h3>
-                <span class="date">2021 — Current</span>
-            </div>
-            <p>Led the development of a property sales and rental portal for one of Myanmar's largest property developers. Managed business scenarios, test plans, and supervised the core dev team.</p>
-            <div class="tech-tags">
-                <span class="tag">Project Management</span> <span class="tag">Agile</span> <span class="tag">System Design</span>
-            </div>
+      <li class="log__entry" data-reveal>
+        <div class="log__meta">
+          <span class="log__index">02</span>
+          <span class="log__tag">Deep Learning · Recommenders</span>
         </div>
-
-        <div class="item-row">
-            <div class="item-header">
-                <h3>UNDP Online Ecommerce Platform</h3>
-                <span class="date">2020 — Current</span>
-            </div>
-            <p>Facilitated a UNDP-funded centralized market system for local SMEs in Kachin State. Guided operational and delivery management between stakeholders and developers.</p>
-            <div class="tech-tags">
-                <span class="tag">WooCommerce</span> <span class="tag">WordPress</span> <span class="tag">Stakeholder Management</span>
-            </div>
+        <div class="log__body">
+          <h3>Movie Rating Prediction</h3>
+          <p>Neural collaborative filtering: embedding layers for user and movie IDs
+             predict a rating with no content features at all. Seven experiments
+             isolated exactly which architecture choices mattered.</p>
+          <div class="log__viz" aria-hidden="true">
+            <svg viewBox="0 0 220 60" class="viz-line">
+              <polyline points="0,44 30,20 60,34 90,48 120,16 150,26 180,38" class="line-path"/>
+              <circle cx="120" cy="16" r="4" class="line-dot"/>
+              <text x="128" y="14" class="viz-value">best</text>
+              <text x="0" y="58" class="viz-sublabel">7 experiments: batch size, depth, activation, callbacks</text>
+            </svg>
+          </div>
+          <div class="log__tools">Python · TensorFlow/Keras · pandas</div>
+          <p class="log__result">Best model: test MAE ≈ 0.198, MSE ≈ 0.056 (normalized [0,1] scale)</p>
         </div>
+        <a class="log__link" href="https://github.com/myathidahtut/movie-rating-prediction-nn" target="_blank" rel="noopener">Repo ↗</a>
+      </li>
 
-        <div class="item-row">
-            <div class="item-header">
-                <h3>Point of Sale & Inventory Control</h3>
-                <span class="date">2006 — 2008</span>
-            </div>
-            <p>Developed a comprehensive inventory system covering purchasing, consignments, and transfers. Implemented complex inventory valuation logic including FIFO, LIFO, and Average Cost methods.</p>
-            <div class="tech-tags">
-                <span class="tag">Java</span> <span class="tag">MySQL</span> <span class="tag">Data Logic</span>
-            </div>
+      <li class="log__entry" data-reveal>
+        <div class="log__meta">
+          <span class="log__index">03</span>
+          <span class="log__tag">EDA · Business Analytics</span>
         </div>
-        
-        <div class="item-row">
-            <div class="item-header">
-                <h3>Web-based Banking System</h3>
-                <span class="date">2002 — 2007</span>
-            </div>
-            <p>Built core banking modules encompassing account management, loans, deposits, remittances, and bill payments.</p>
-            <div class="tech-tags">
-                <span class="tag">PHP</span> <span class="tag">Secure Transactions</span>
-            </div>
+        <div class="log__body">
+          <h3>Retail Sales Analytics</h3>
+          <p>Five business questions answered from raw retail transaction data:
+             peak hours, best-selling categories, top spenders, payment methods,
+             and seasonal trend.</p>
+          <div class="log__viz" aria-hidden="true">
+            <svg viewBox="0 0 220 60" class="viz-bars">
+              <rect x="0" y="4" width="209" height="14" class="bar bar--primary"/>
+              <text x="0" y="14" class="viz-value viz-value--onbar">95.3% cash-on-delivery</text>
+              <text x="0" y="40" class="viz-sublabel">October sales ≈2× the monthly average</text>
+              <text x="0" y="54" class="viz-sublabel">(Thadingyut, the Festival of Lights)</text>
+            </svg>
+          </div>
+          <div class="log__tools">Python · pandas · Plotly · Seaborn</div>
         </div>
-    </section>
+        <a class="log__link" href="https://github.com/myathidahtut/retail-sales-analytics" target="_blank" rel="noopener">Repo ↗</a>
+      </li>
 
-    <footer id="contact">
-        <div class="social-links">
-            <a href="mailto:myathidahtut@gmail.com" target="_blank">Email</a>
-            <a href="https://www.linkedin.com/in/mya-thida-htut-62108b48" target="_blank">LinkedIn</a>
-            <a href="https://github.com/myathidahtut" target="_blank">GitHub</a>
+      <li class="log__entry" data-reveal>
+        <div class="log__meta">
+          <span class="log__index">04</span>
+          <span class="log__tag">Full-Stack · Dashboard</span>
         </div>
-        <p>&copy; <span id="year"></span> Mya Thida Htut. All rights reserved.</p>
-    </footer>
+        <div class="log__body">
+          <h3>Aura Intelligence Suite</h3>
+          <p>A client-side BI dashboard: drop in one or more CSV exports and it
+             parses, normalizes mismatched column schemas, and visualizes revenue,
+             category, and customer patterns, entirely client-side in the browser.</p>
+          <div class="log__tools">Vanilla JS · PapaParse · Chart.js</div>
+        </div>
+        <div class="log__linkgroup">
+          <a class="log__link" href="https://myathidahtut.github.io/AuraIntelligenceSuite/" target="_blank" rel="noopener">Live demo ↗</a>
+          <a class="log__link log__link--secondary" href="https://github.com/myathidahtut/AuraIntelligenceSuite" target="_blank" rel="noopener">Repo ↗</a>
+        </div>
+      </li>
 
-    <script>
-        // Set dynamic year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+      <li class="log__entry" data-reveal>
+        <div class="log__meta">
+          <span class="log__index">05</span>
+          <span class="log__tag">Dashboard · UI</span>
+        </div>
+        <div class="log__body">
+          <h3>Predictive Analytics Dashboard</h3>
+          <p>An interactive front-end for presenting churn analysis on the Maven
+             Analytics Telecom dataset: a model comparison view and a live risk
+             simulator, built as a dashboard-design exercise.</p>
+          <div class="log__tools">HTML · Tailwind CSS · Chart.js</div>
+        </div>
+        <div class="log__linkgroup">
+          <a class="log__link" href="https://myathidahtut.github.io/PredictiveAnalyticsDashboard/" target="_blank" rel="noopener">Live demo ↗</a>
+          <a class="log__link log__link--secondary" href="https://github.com/myathidahtut/PredictiveAnalyticsDashboard" target="_blank" rel="noopener">Repo ↗</a>
+        </div>
+      </li>
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+      <li class="log__entry" data-reveal>
+        <div class="log__meta">
+          <span class="log__index">06</span>
+          <span class="log__tag">MSc Thesis · Published</span>
+        </div>
+        <div class="log__body">
+          <h3>Predicting Disease Outbreaks with ML</h3>
+          <p>Joint dissertation comparing Decision Trees, Neural Networks, ARIMA, and
+             LSTM on integrated epidemiological, climate, mobility, and healthcare data
+             to forecast malaria and dengue outbreaks.</p>
+          <div class="log__tools">Python · TensorFlow · Statsmodels · scikit-learn</div>
+          <p class="log__result">Neural Network beat baseline by 27% on RMSE · published, DOI 10.13140/RG.2.2.35607.23208</p>
+        </div>
+        <a class="log__link" href="https://github.com/masood-ahmed-k/disease-outbreak-prediction" target="_blank" rel="noopener">Repo ↗</a>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="section" id="instruments">
+    <div class="section__head" data-reveal>
+      <h2>Instruments</h2>
+    </div>
+    <div class="instruments" data-reveal>
+      <div class="instrument-group">
+        <h3>Languages</h3>
+        <p>Python · SQL · Java · PHP</p>
+      </div>
+      <div class="instrument-group">
+        <h3>Data &amp; ML</h3>
+        <p>pandas · scikit-learn · TensorFlow · PyTorch · Hugging Face · spaCy</p>
+      </div>
+      <div class="instrument-group">
+        <h3>Visualization</h3>
+        <p>Plotly · Seaborn · Streamlit · Chart.js</p>
+      </div>
+      <div class="instrument-group">
+        <h3>Systems</h3>
+        <p>MySQL · Flask · Git</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--contact" id="contact">
+    <div class="contact" data-reveal>
+      <h2>Get in touch</h2>
+      <p>Based in Berlin, open to Data Analyst, Data Scientist, and Developer roles.</p>
+      <a href="https://github.com/myathidahtut" class="btn btn--primary" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>Mya Thida Htut · Berlin</span>
+</footer>
+
+<script src="assets/js/script.js"></script>
 </body>
 </html>
