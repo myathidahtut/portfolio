@@ -191,6 +191,23 @@
   }
   .nav-link:hover::after { width: 100%; }
 
+  /* Experience connectors */
+  .experience-card {
+    position: relative;
+    overflow: visible;
+  }
+  .experience-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -1.25rem;
+    width: 2px;
+    height: 1.25rem;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(129,140,248,0.75), rgba(34,211,238,0.55));
+    box-shadow: 0 0 16px rgba(34,211,238,0.22);
+  }
+
   ::selection {
     background: rgba(99, 102, 241, 0.4);
     color: #fff;
@@ -544,9 +561,9 @@
       </div>
 
       <div>
-        <ol class="grid gap-5">
+        <ol class="experience-list grid gap-5">
 
-          <li class="reveal glass rounded-xl p-5">
+          <li class="experience-card reveal glass rounded-xl p-5">
             <div class="flex flex-wrap items-baseline justify-between gap-3 mb-1">
               <h3 class="font-semibold text-slate-100">MSc Data Science, AI &amp; Digital Business</h3>
               <span class="rounded-full bg-purple-500/15 px-3 py-1 font-mono text-xs text-purple-200 ring-1 ring-purple-400/25">2024 to 2025</span>
@@ -554,7 +571,7 @@
             <p class="text-sm text-slate-400">GISMA University of Applied Sciences, Potsdam. Completed.</p>
           </li>
 
-          <li class="reveal glass rounded-xl p-5">
+          <li class="experience-card reveal glass rounded-xl p-5">
             <div class="flex flex-wrap items-baseline justify-between gap-3 mb-1">
               <h3 class="font-semibold text-slate-100">Team Lead (Open Source)</h3>
               <span class="rounded-full bg-cyan-500/15 px-3 py-1 font-mono text-xs text-cyan-200 ring-1 ring-cyan-400/25">2018 to 2023</span>
@@ -567,7 +584,7 @@
             </p>
           </li>
 
-          <li class="reveal glass rounded-xl p-5">
+          <li class="experience-card reveal glass rounded-xl p-5">
             <div class="flex flex-wrap items-baseline justify-between gap-3 mb-1">
               <h3 class="font-semibold text-slate-100">MBA</h3>
               <span class="rounded-full bg-blue-500/15 px-3 py-1 font-mono text-xs text-blue-200 ring-1 ring-blue-400/25">2014 to 2016</span>
@@ -575,7 +592,7 @@
             <p class="text-sm text-slate-400">University of Economics, Yangon</p>
           </li>
 
-          <li class="reveal glass rounded-xl p-5">
+          <li class="experience-card reveal glass rounded-xl p-5">
             <div class="flex flex-wrap items-baseline justify-between gap-3 mb-1">
               <h3 class="font-semibold text-slate-100">Senior Developer</h3>
               <span class="rounded-full bg-indigo-500/15 px-3 py-1 font-mono text-xs text-indigo-200 ring-1 ring-indigo-400/25">2004 to 2015</span>
@@ -588,7 +605,7 @@
             </p>
           </li>
 
-          <li class="reveal glass rounded-xl p-5">
+          <li class="experience-card reveal glass rounded-xl p-5">
             <div class="flex flex-wrap items-baseline justify-between gap-3 mb-1">
               <h3 class="font-semibold text-slate-100">BSc Computer Technology</h3>
               <span class="rounded-full bg-indigo-500/15 px-3 py-1 font-mono text-xs text-indigo-200 ring-1 ring-indigo-400/25">2001 to 2004</span>
