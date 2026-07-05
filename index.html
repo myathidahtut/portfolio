@@ -3,315 +3,781 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mya Thida Htut · Data Analyst &amp; Data Scientist, Berlin</title>
-<meta name="description" content="Data Analyst & Data Scientist built on 15 years of software engineering. Measured results in NLP, recommender systems, BI, and forecasting — portfolio of data science and ML work.">
+<title>Mya Thida Htut · Data Analyst &amp; Data Scientist</title>
+<meta name="description" content="Mya Thida Htut — Data Analyst &amp; Data Scientist with a 15-year software engineering foundation. Portfolio of NLP, machine learning, and BI projects.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          base: {
+            bg: '#0B0F19',
+            surface: '#111827',
+            card: '#151B2B',
+            border: '#232B3E',
+          },
+          brand: {
+            indigo: '#6366F1',
+            blue: '#3B82F6',
+            cyan: '#22D3EE',
+            purple: '#A855F7',
+          },
+        },
+        boxShadow: {
+          glow: '0 0 40px -10px rgba(99, 102, 241, 0.45)',
+          'glow-cyan': '0 0 40px -10px rgba(34, 211, 238, 0.35)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background-color: #0B0F19;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(99, 102, 241, 0.18), transparent),
+      radial-gradient(ellipse 60% 50% at 100% 10%, rgba(34, 211, 238, 0.10), transparent),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(168, 85, 247, 0.10), transparent);
+    background-attachment: fixed;
+    color: #E5E7EB;
+  }
+
+  /* Gradient text */
+  .grad-text {
+    background: linear-gradient(90deg, #818CF8 0%, #38BDF8 50%, #C084FC 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glassmorphism card */
+  .glass {
+    background: rgba(21, 27, 43, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+  }
+
+  .glass-strong {
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  /* Card hover glow */
+  .card-hover {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3), 0 20px 50px -15px rgba(99, 102, 241, 0.35), 0 0 60px -20px rgba(34, 211, 238, 0.25);
+    border-color: rgba(129, 140, 248, 0.4);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background: linear-gradient(90deg, #6366F1, #3B82F6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 30px -8px rgba(99, 102, 241, 0.6);
+    filter: brightness(1.08);
+  }
+  .btn-primary:active { transform: translateY(0) scale(0.99); }
+
+  .btn-ghost {
+    transition: all 0.2s ease;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(129, 140, 248, 0.6);
+    background: rgba(99, 102, 241, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Scroll progress bar */
+  #scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #6366F1, #22D3EE, #A855F7);
+    z-index: 100;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.8);
+    transition: width 0.1s ease-out;
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Typing cursor */
+  .type-cursor {
+    display: inline-block;
+    width: 3px;
+    margin-left: 2px;
+    background: #22D3EE;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .type-cursor { animation: none; opacity: 1; }
+  }
+
+  /* Skill bar fill animation */
+  .skill-fill {
+    width: 0%;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Glow blob backgrounds */
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* Timeline line */
+  .timeline-line {
+    background: linear-gradient(180deg, rgba(99,102,241,0.7), rgba(34,211,238,0.5), rgba(168,85,247,0.3));
+  }
+
+  /* Nav link underline */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #818CF8, #22D3EE);
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  ::selection {
+    background: rgba(99, 102, 241, 0.4);
+    color: #fff;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #0B0F19; }
+  ::-webkit-scrollbar-thumb { background: #232B3E; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #363f56; }
+</style>
 </head>
-<body>
 
-<div class="grain" aria-hidden="true"></div>
+<body class="font-sans antialiased selection:bg-indigo-500/40">
 
-<header class="site-header">
-  <nav class="nav" aria-label="Primary">
-    <a href="#top" class="nav__mark">M.T.H.</a>
-    <ul class="nav__links">
-      <li><a href="#log">Log</a></li>
-      <li><a href="#record">Record</a></li>
-      <li><a href="#instruments">Instruments</a></li>
-      <li><a href="#contact">Contact</a></li>
+<div id="scroll-progress"></div>
+
+<!-- ambient background blobs -->
+<div class="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+  <div class="blob w-[500px] h-[500px] bg-indigo-600 top-[-100px] left-[-100px]"></div>
+  <div class="blob w-[400px] h-[400px] bg-cyan-500 top-[30%] right-[-150px]"></div>
+  <div class="blob w-[450px] h-[450px] bg-purple-600 bottom-[-150px] left-[10%]"></div>
+</div>
+
+<!-- NAV -->
+<header class="fixed top-0 left-0 right-0 z-50">
+  <nav class="glass mx-auto mt-3 max-w-6xl rounded-2xl px-5 py-3 flex items-center justify-between" aria-label="Primary">
+    <a href="#top" class="font-bold tracking-tight text-slate-100 hover:text-white transition-colors">
+      M<span class="grad-text">.</span>T<span class="grad-text">.</span>H<span class="grad-text">.</span>
+    </a>
+    <ul class="hidden sm:flex items-center gap-8 text-sm text-slate-300">
+      <li><a href="#about" class="nav-link hover:text-white transition-colors">About</a></li>
+      <li><a href="#skills" class="nav-link hover:text-white transition-colors">Skills</a></li>
+      <li><a href="#projects" class="nav-link hover:text-white transition-colors">Projects</a></li>
+      <li><a href="#experience" class="nav-link hover:text-white transition-colors">Experience</a></li>
+      <li><a href="#contact" class="nav-link hover:text-white transition-colors">Contact</a></li>
     </ul>
+    <a href="https://github.com/myathidahtut" target="_blank" rel="noopener" class="btn-ghost rounded-lg px-3 py-1.5 text-sm text-slate-200">GitHub</a>
   </nav>
 </header>
 
 <main id="top">
 
-  <section class="hero">
-    <div class="hero__grid">
-      <div class="hero__col">
-        <div class="hero__plate" data-reveal>
-          <span class="plate__no">No. GH1037827</span>
-          <span class="plate__loc">Berlin, DE</span>
-        </div>
-        <h1 class="hero__title" data-reveal>
-          Mya Thida Htut
-        </h1>
-        <p class="hero__role" data-reveal>Data Analyst &amp; Data Scientist — built on 15 years of software engineering</p>
-        <p class="hero__lede" data-reveal>
-          Fifteen years spent building the systems companies run on —
-          banking, POS, inventory. I know where the data comes from
-          before I ever open the notebook. Now reading what it says:
-          one measured, published result at a time.
-        </p>
-        <div class="hero__actions" data-reveal>
-          <a href="#log" class="btn btn--primary">Read the log</a>
-          <a href="https://github.com/myathidahtut" class="btn btn--ghost" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/myathidahtut/" class="btn btn--ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
-        </div>
-      </div>
-      <figure class="hero__portrait" data-reveal>
-        <img src="assets/img/profile.jpg" width="400" height="400" alt="Portrait of Mya Thida Htut" loading="eager" decoding="async">
-        <figcaption class="portrait__tag">EST. 2001 · MYANMAR → BERLIN</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section section--log" id="log">
-    <div class="section__head" data-reveal>
-      <h2>The Data Log</h2>
-      <p class="section__note">Six entries. Every figure below is a measured result, not a claim.</p>
-    </div>
-
-    <ol class="log">
-
-      <li class="log__entry" data-reveal>
-        <div class="log__meta">
-          <span class="log__index">01</span>
-          <span class="log__tag">NLP · Transformers</span>
-        </div>
-        <div class="log__body">
-          <h3>E-Commerce Review Sentiment</h3>
-          <p>An end-to-end pipeline classifying Amazon reviews as positive, negative,
-             or neutral, comparing a fine-tuned DistilBERT transformer against a
-             TF-IDF + Logistic Regression baseline.</p>
-          <div class="log__viz" aria-hidden="true">
-            <svg viewBox="0 0 220 90" class="viz-bars">
-              <text x="0" y="14" class="viz-label">Accuracy</text>
-              <rect x="0" y="24" width="146" height="16" class="bar bar--primary"/>
-              <text x="152" y="36" class="viz-value">63%</text>
-              <text x="0" y="26" class="viz-sublabel" dy="34">Transformer</text>
-              <rect x="0" y="60" width="128" height="16" class="bar bar--muted"/>
-              <text x="134" y="72" class="viz-value">55%</text>
-              <text x="0" y="62" class="viz-sublabel" dy="34">TF-IDF + LogReg</text>
-            </svg>
-          </div>
-          <div class="log__tools">Python · PyTorch · Hugging Face · spaCy · scikit-learn</div>
-        </div>
-        <a class="log__link" href="https://github.com/myathidahtut/ecommerce-review-sentiment-nlp" target="_blank" rel="noopener">Repo ↗</a>
-      </li>
-
-      <li class="log__entry" data-reveal>
-        <div class="log__meta">
-          <span class="log__index">02</span>
-          <span class="log__tag">Deep Learning · Recommenders</span>
-        </div>
-        <div class="log__body">
-          <h3>Movie Rating Prediction</h3>
-          <p>Neural collaborative filtering: embedding layers for user and movie IDs
-             predict a rating with no content features at all. Seven experiments
-             isolated exactly which architecture choices mattered.</p>
-          <div class="log__viz" aria-hidden="true">
-            <svg viewBox="0 0 220 60" class="viz-line">
-              <polyline points="0,44 30,20 60,34 90,48 120,16 150,26 180,38" class="line-path"/>
-              <circle cx="120" cy="16" r="4" class="line-dot"/>
-              <text x="128" y="14" class="viz-value">best</text>
-              <text x="0" y="58" class="viz-sublabel">7 experiments: batch size, depth, activation, callbacks</text>
-            </svg>
-          </div>
-          <div class="log__tools">Python · TensorFlow/Keras · pandas</div>
-          <p class="log__result">Best model: test MAE ≈ 0.198, MSE ≈ 0.056 (normalized [0,1] scale)</p>
-        </div>
-        <a class="log__link" href="https://github.com/myathidahtut/movie-rating-prediction-nn" target="_blank" rel="noopener">Repo ↗</a>
-      </li>
-
-      <li class="log__entry" data-reveal>
-        <div class="log__meta">
-          <span class="log__index">03</span>
-          <span class="log__tag">EDA · Business Analytics</span>
-        </div>
-        <div class="log__body">
-          <h3>Retail Sales Analytics</h3>
-          <p>Five business questions answered from raw retail transaction data:
-             peak hours, best-selling categories, top spenders, payment methods,
-             and seasonal trend.</p>
-          <div class="log__viz" aria-hidden="true">
-            <svg viewBox="0 0 220 60" class="viz-bars">
-              <rect x="0" y="4" width="209" height="14" class="bar bar--primary"/>
-              <text x="0" y="14" class="viz-value viz-value--onbar">95.3% cash-on-delivery</text>
-              <text x="0" y="40" class="viz-sublabel">October sales ≈2× the monthly average</text>
-              <text x="0" y="54" class="viz-sublabel">(Thadingyut, the Festival of Lights)</text>
-            </svg>
-          </div>
-          <div class="log__tools">Python · pandas · Plotly · Seaborn</div>
-        </div>
-        <a class="log__link" href="https://github.com/myathidahtut/retail-sales-analytics" target="_blank" rel="noopener">Repo ↗</a>
-      </li>
-
-      <li class="log__entry" data-reveal>
-        <div class="log__meta">
-          <span class="log__index">04</span>
-          <span class="log__tag">Full-Stack · Dashboard</span>
-        </div>
-        <div class="log__body">
-          <h3>Aura Intelligence Suite</h3>
-          <p>A client-side BI dashboard: drop in one or more CSV exports and it
-             parses, normalizes mismatched column schemas, and visualizes revenue,
-             category, and customer patterns, entirely client-side in the browser.</p>
-          <div class="log__tools">Vanilla JS · PapaParse · Chart.js</div>
-        </div>
-        <div class="log__linkgroup">
-          <a class="log__link" href="https://myathidahtut.github.io/AuraIntelligenceSuite/" target="_blank" rel="noopener">Live demo ↗</a>
-          <a class="log__link log__link--secondary" href="https://github.com/myathidahtut/AuraIntelligenceSuite" target="_blank" rel="noopener">Repo ↗</a>
-        </div>
-      </li>
-
-      <li class="log__entry" data-reveal>
-        <div class="log__meta">
-          <span class="log__index">05</span>
-          <span class="log__tag">Dashboard · UI</span>
-        </div>
-        <div class="log__body">
-          <h3>Predictive Analytics Dashboard</h3>
-          <p>An interactive front-end for presenting churn analysis on the Maven
-             Analytics Telecom dataset: a model comparison view and a live risk
-             simulator, built as a dashboard-design exercise.</p>
-          <div class="log__tools">HTML · Tailwind CSS · Chart.js</div>
-        </div>
-        <div class="log__linkgroup">
-          <a class="log__link" href="https://myathidahtut.github.io/PredictiveAnalyticsDashboard/" target="_blank" rel="noopener">Live demo ↗</a>
-          <a class="log__link log__link--secondary" href="https://github.com/myathidahtut/PredictiveAnalyticsDashboard" target="_blank" rel="noopener">Repo ↗</a>
-        </div>
-      </li>
-
-      <li class="log__entry" data-reveal>
-        <div class="log__meta">
-          <span class="log__index">06</span>
-          <span class="log__tag">MSc Thesis · Published</span>
-        </div>
-        <div class="log__body">
-          <h3>Predicting Disease Outbreaks with ML</h3>
-          <p>Joint dissertation comparing Decision Trees, Neural Networks, ARIMA, and
-             LSTM on integrated epidemiological, climate, mobility, and healthcare data
-             to forecast malaria and dengue outbreaks.</p>
-          <div class="log__tools">Python · TensorFlow · Statsmodels · scikit-learn</div>
-          <p class="log__result">Neural Network beat baseline by 27% on RMSE · published, DOI 10.13140/RG.2.2.35607.23208</p>
-        </div>
-        <a class="log__link" href="https://github.com/masood-ahmed-k/disease-outbreak-prediction" target="_blank" rel="noopener">Repo ↗</a>
-      </li>
-
-    </ol>
-  </section>
-
-  <section class="section" id="record">
-    <div class="section__head" data-reveal>
-      <h2>Field Record</h2>
-      <p class="section__note">Why the data reads right: she spent 15 years building the systems it comes from.</p>
-    </div>
-    <div class="record">
-      <p class="record__bio" data-reveal>
-        Before the notebooks: fifteen years leading development teams and
-        shipping the production systems that generate this kind of data in
-        the first place — core banking modules, point-of-sale and inventory
-        control, HR and payroll platforms, hospitality software, a
-        real-estate sales &amp; rental portal for one of Myanmar's largest
-        developers, and a UNDP-funded e-commerce marketplace for SMEs in
-        Kachin State. That's the edge: knowing what a transaction log
-        actually represents, where it lies, and what a "clean" export
-        usually hides. Now based in Berlin, with an MBA and a Master's in
-        Data Science, AI &amp; Digital Business (GISMA University of Applied
-        Sciences, Potsdam) formalizing the analytical side.
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center px-6 pt-28 pb-16">
+    <div class="max-w-5xl mx-auto text-center w-full">
+      <p class="reveal inline-block mb-6 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide uppercase glass text-cyan-300/90">
+        Data Analyst &amp; Data Scientist · Berlin
       </p>
 
-      <ol class="timeline" data-reveal>
-        <li class="timeline__entry">
-          <span class="timeline__date">2018–2023</span>
-          <span class="timeline__role">Team Lead, Open Source</span>
-          <span class="timeline__org">Future Hub Company Limited</span>
-        </li>
-        <li class="timeline__entry">
-          <span class="timeline__date">2004–2015</span>
-          <span class="timeline__role">Senior Developer</span>
-          <span class="timeline__org">Electronic Service Company Limited</span>
-        </li>
-        <li class="timeline__entry">
-          <span class="timeline__date">2024–2025</span>
-          <span class="timeline__role">MSc Data Science, AI &amp; Digital Business</span>
-          <span class="timeline__org">GISMA University of Applied Sciences, Potsdam</span>
-        </li>
-        <li class="timeline__entry">
-          <span class="timeline__date">2014–2016</span>
-          <span class="timeline__role">MBA</span>
-          <span class="timeline__org">University of Economics, Yangon</span>
-        </li>
-        <li class="timeline__entry">
-          <span class="timeline__date">2001–2004</span>
-          <span class="timeline__role">BSc Computer Technology</span>
-          <span class="timeline__org">University of Computer Studies, Yangon</span>
-        </li>
-      </ol>
-    </div>
+      <h1 class="reveal text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">
+        <span class="text-slate-50">Mya Thida</span>
+        <br>
+        <span class="grad-text">Htut</span>
+      </h1>
 
-    <div class="domains" data-reveal>
-      <span class="domains__label">Domains shipped</span>
-      <ul class="domains__list">
-        <li><span class="domains__term">Core banking</span> — accounts, loans, deposits, remittances, bill payments</li>
-        <li><span class="domains__term">POS &amp; inventory</span> — FIFO / LIFO / average-cost valuation logic</li>
-        <li><span class="domains__term">HR &amp; payroll</span> — full employee lifecycle processing</li>
-        <li><span class="domains__term">Hospitality</span> — booking &amp; property operations platforms</li>
-        <li><span class="domains__term">Real estate</span> — sales &amp; rental portal, major Myanmar developer</li>
-        <li><span class="domains__term">SME marketplace</span> — UNDP-funded e-commerce, Kachin State</li>
-      </ul>
-    </div>
+      <div class="reveal h-16 sm:h-10 flex items-center justify-center mb-8">
+        <p class="text-lg sm:text-2xl text-slate-300 font-medium">
+          <span id="typing-text"></span><span class="type-cursor">&nbsp;</span>
+        </p>
+      </div>
 
-    <div class="ledger-stats" data-reveal>
-      <div class="ledger-stat">
-        <span class="ledger-stat__value">25%</span>
-        <span class="ledger-stat__label">increase in user satisfaction scores</span>
-      </div>
-      <div class="ledger-stat">
-        <span class="ledger-stat__value">40%</span>
-        <span class="ledger-stat__label">reduction in manual reporting effort via SQL-driven dashboards</span>
-      </div>
-      <div class="ledger-stat">
-        <span class="ledger-stat__value">15%</span>
-        <span class="ledger-stat__label">gain in processing efficiency</span>
+      <p class="reveal max-w-2xl mx-auto text-slate-400 text-base sm:text-lg mb-10 leading-relaxed">
+        15 years of software engineering across banking, POS, and payroll systems &mdash;
+        now applied to data science, machine learning, and analytics with a
+        completed MSc to match.
+      </p>
+
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#projects" class="btn-primary rounded-xl px-7 py-3.5 font-semibold text-white shadow-glow">
+          View Projects
+        </a>
+        <a href="https://github.com/myathidahtut" target="_blank" rel="noopener"
+           class="btn-ghost rounded-xl px-7 py-3.5 font-semibold text-slate-200">
+          GitHub Profile ↗
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="instruments">
-    <div class="section__head" data-reveal>
-      <h2>Instruments</h2>
-    </div>
-    <div class="instruments" data-reveal>
-      <div class="instrument-group">
-        <h3>Languages</h3>
-        <p>Python · SQL · Java · Java Swing · PHP · XML</p>
+  <!-- ABOUT -->
+  <section id="about" class="relative px-6 py-24 sm:py-32">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-14">
+        <p class="text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3">About Me</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-50">Data storytelling, grounded in systems experience</h2>
       </div>
-      <div class="instrument-group">
-        <h3>Data &amp; ML</h3>
-        <p>pandas · NumPy · scikit-learn · TensorFlow · PyTorch · Hugging Face · spaCy</p>
-      </div>
-      <div class="instrument-group">
-        <h3>Visualization &amp; BI</h3>
-        <p>Power BI · Plotly · Seaborn · Matplotlib · Jasper Report · Excel · Streamlit · Chart.js</p>
-      </div>
-      <div class="instrument-group">
-        <h3>Systems</h3>
-        <p>MySQL · advanced SQL &amp; schema design · Flask · Linux (Red Hat) · Apache · Git</p>
+
+      <div class="reveal grid md:grid-cols-5 gap-10 items-center">
+        <div class="md:col-span-2 flex justify-center">
+          <div class="relative">
+            <div class="absolute -inset-3 rounded-3xl bg-gradient-to-br from-indigo-500/30 via-cyan-400/20 to-purple-500/30 blur-xl"></div>
+            <!-- NOTE: profile.jpg is 400x400; she may replace with a higher-res version later -->
+            <img src="assets/img/profile.jpg" alt="Portrait of Mya Thida Htut" width="400" height="400"
+                 class="relative rounded-3xl w-64 h-64 sm:w-72 sm:h-72 object-cover border border-slate-700/60 shadow-2xl">
+          </div>
+        </div>
+        <div class="md:col-span-3 space-y-5 text-slate-300 leading-relaxed">
+          <p>
+            I'm a Data Analyst &amp; Data Scientist with a 15-year software engineering
+            foundation in Java, PHP, and MySQL. Before notebooks and models, I spent
+            those years building the production systems that generate this kind of
+            data in the first place &mdash; so I know what a "clean" dataset is hiding
+            before I ever open it.
+          </p>
+          <p>
+            That systems background is now backed by a completed Master's in Data
+            Science, AI &amp; Digital Business from GISMA University of Applied
+            Sciences in Potsdam. I work across the full analytics stack &mdash; from
+            SQL and BI dashboards to deep learning models &mdash; turning raw data into
+            decisions people can act on.
+          </p>
+          <p>
+            I like problems with a measurable answer: an accuracy delta, an error
+            margin, a business question with a number attached. Every project below
+            reports a real, checkable result.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--contact" id="contact">
-    <div class="contact" data-reveal>
-      <h2>Get in touch</h2>
-      <p>Based in Berlin, open to Data Analyst, Data Scientist, and Developer roles.</p>
-      <div class="contact__actions">
-        <a href="https://github.com/myathidahtut" class="btn btn--primary" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/myathidahtut/" class="btn btn--ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+  <!-- SKILLS -->
+  <section id="skills" class="relative px-6 py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <p class="text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3">Skills</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-50">Tools of the trade</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Core -->
+        <div class="reveal glass rounded-2xl p-7 card-hover">
+          <h3 class="text-lg font-semibold text-slate-100 mb-1">Core</h3>
+          <p class="text-sm text-slate-400 mb-6">Languages &amp; foundations</p>
+          <div class="space-y-4" data-skill-group>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Python</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-indigo-500 to-blue-400" data-target="95"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">SQL / MySQL</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-indigo-500 to-blue-400" data-target="92"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Java / Java Swing</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-indigo-500 to-blue-400" data-target="90"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">PHP</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-indigo-500 to-blue-400" data-target="85"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">HTML / XML</span><span class="text-slate-400">Proficient</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-indigo-500 to-blue-400" data-target="80"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ML & Data Science -->
+        <div class="reveal glass rounded-2xl p-7 card-hover">
+          <h3 class="text-lg font-semibold text-slate-100 mb-1">ML &amp; Data Science</h3>
+          <p class="text-sm text-slate-400 mb-6">Modeling &amp; analysis</p>
+          <div class="space-y-4" data-skill-group>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">pandas / NumPy</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" data-target="93"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">scikit-learn</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" data-target="90"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">TensorFlow / PyTorch</span><span class="text-slate-400">Proficient</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" data-target="82"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Hugging Face / spaCy</span><span class="text-slate-400">Proficient</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" data-target="78"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Power BI / Excel</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" data-target="90"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Matplotlib / Plotly / Seaborn</span><span class="text-slate-400">Proficient</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" data-target="85"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Streamlit / Jasper Report</span><span class="text-slate-400">Proficient</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" data-target="75"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engineering Foundation -->
+        <div class="reveal glass rounded-2xl p-7 card-hover">
+          <h3 class="text-lg font-semibold text-slate-100 mb-1">Engineering Foundation</h3>
+          <p class="text-sm text-slate-400 mb-6">15 years in production systems</p>
+          <div class="space-y-4" data-skill-group>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Git</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-400" data-target="90"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Linux (Red Hat)</span><span class="text-slate-400">Advanced</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-400" data-target="85"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1.5"><span class="text-slate-300">Apache Web Server</span><span class="text-slate-400">Proficient</span></div>
+              <div class="h-1.5 rounded-full bg-slate-800/80 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-400" data-target="80"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="relative px-6 py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <p class="text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3">Projects</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-50">Real work, real results</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6" id="project-grid">
+
+        <!-- 1 -->
+        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="ecommerce-review-sentiment-nlp">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-medium tracking-wide uppercase text-cyan-300/90">NLP · Transformers</span>
+            <span class="repo-badge text-xs text-slate-400 font-mono"></span>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-2">E-Commerce Review Sentiment</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+            Fine-tuned DistilBERT transformer vs. TF-IDF + Logistic Regression baseline
+            for Amazon review sentiment classification.
+          </p>
+          <p class="text-sm font-medium text-indigo-300 mb-4">Result: 63% vs 55% accuracy</p>
+          <p class="text-xs font-mono text-slate-400 mb-5">Python · PyTorch · Hugging Face · spaCy · scikit-learn</p>
+          <a href="https://github.com/myathidahtut/ecommerce-review-sentiment-nlp" target="_blank" rel="noopener"
+             class="btn-ghost self-start rounded-lg px-4 py-2 text-sm text-slate-200">Repo ↗</a>
+        </article>
+
+        <!-- 2 -->
+        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="movie-rating-prediction-nn">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-medium tracking-wide uppercase text-cyan-300/90">Deep Learning · Recommenders</span>
+            <span class="repo-badge text-xs text-slate-400 font-mono"></span>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-2">Movie Rating Prediction</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+            Embedding-based neural collaborative filtering recommender with a
+            7-experiment architecture ablation study.
+          </p>
+          <p class="text-sm font-medium text-indigo-300 mb-4">Result: test MAE ≈ 0.198, MSE ≈ 0.056 (normalized [0,1])</p>
+          <p class="text-xs font-mono text-slate-400 mb-5">TensorFlow/Keras · pandas · scikit-learn</p>
+          <a href="https://github.com/myathidahtut/movie-rating-prediction-nn" target="_blank" rel="noopener"
+             class="btn-ghost self-start rounded-lg px-4 py-2 text-sm text-slate-200">Repo ↗</a>
+        </article>
+
+        <!-- 3 -->
+        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="retail-sales-analytics">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-medium tracking-wide uppercase text-cyan-300/90">EDA · Business Analytics</span>
+            <span class="repo-badge text-xs text-slate-400 font-mono"></span>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-2">Retail Sales Analytics</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+            Answered 5 business questions from retail transaction data covering
+            payment behavior and seasonal demand.
+          </p>
+          <p class="text-sm font-medium text-indigo-300 mb-4">Result: 95.3% cash-on-delivery share · ≈2× October spike (Thadingyut)</p>
+          <p class="text-xs font-mono text-slate-400 mb-5">Python · pandas · Plotly · Seaborn</p>
+          <a href="https://github.com/myathidahtut/retail-sales-analytics" target="_blank" rel="noopener"
+             class="btn-ghost self-start rounded-lg px-4 py-2 text-sm text-slate-200">Repo ↗</a>
+        </article>
+
+        <!-- 4 -->
+        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="AuraIntelligenceSuite">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-medium tracking-wide uppercase text-cyan-300/90">Full-Stack · BI Dashboard</span>
+            <span class="repo-badge text-xs text-slate-400 font-mono"></span>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-2">Aura Intelligence Suite</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+            Client-side BI dashboard: multi-file CSV ingestion, adaptive schema
+            mapping, and interactive revenue/category/customer charts &mdash; no backend.
+          </p>
+          <p class="text-xs font-mono text-slate-400 mb-5">Vanilla JS · PapaParse · Chart.js</p>
+          <div class="flex gap-3 mt-auto">
+            <a href="https://myathidahtut.github.io/AuraIntelligenceSuite/" target="_blank" rel="noopener"
+               class="btn-primary rounded-lg px-4 py-2 text-sm font-medium text-white">Live Demo ↗</a>
+            <a href="https://github.com/myathidahtut/AuraIntelligenceSuite" target="_blank" rel="noopener"
+               class="btn-ghost rounded-lg px-4 py-2 text-sm text-slate-200">Repo ↗</a>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="PredictiveAnalyticsDashboard">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-medium tracking-wide uppercase text-cyan-300/90">Dashboard · UI</span>
+            <span class="repo-badge text-xs text-slate-400 font-mono"></span>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-2">Predictive Analytics Dashboard</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+            Telecom churn dashboard with a model comparison view and a live risk
+            simulator.
+          </p>
+          <p class="text-xs font-mono text-slate-400 mb-5">HTML · Tailwind CSS · Chart.js</p>
+          <div class="flex gap-3 mt-auto">
+            <a href="https://myathidahtut.github.io/PredictiveAnalyticsDashboard/" target="_blank" rel="noopener"
+               class="btn-primary rounded-lg px-4 py-2 text-sm font-medium text-white">Live Demo ↗</a>
+            <a href="https://github.com/myathidahtut/PredictiveAnalyticsDashboard" target="_blank" rel="noopener"
+               class="btn-ghost rounded-lg px-4 py-2 text-sm text-slate-200">Repo ↗</a>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="disease-outbreak-prediction" data-owner="masood-ahmed-k">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-medium tracking-wide uppercase text-cyan-300/90">MSc Thesis · Published</span>
+            <span class="repo-badge text-xs text-slate-400 font-mono"></span>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-2">Disease Outbreak Prediction</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+            MSc thesis (joint work): compared Decision Trees, Neural Networks, ARIMA,
+            and LSTM on epidemiological, climate, mobility, and healthcare data.
+          </p>
+          <p class="text-sm font-medium text-indigo-300 mb-2">Result: Neural Network beat baseline by 27% RMSE</p>
+          <p class="text-xs text-slate-400 mb-4">
+            DOI: <a href="https://doi.org/10.13140/RG.2.2.35607.23208" target="_blank" rel="noopener" class="underline decoration-dotted hover:text-cyan-300 transition-colors">10.13140/RG.2.2.35607.23208</a>
+          </p>
+          <a href="https://github.com/masood-ahmed-k/disease-outbreak-prediction" target="_blank" rel="noopener"
+             class="btn-ghost self-start rounded-lg px-4 py-2 text-sm text-slate-200">Repo ↗</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / LEARNING JOURNEY -->
+  <section id="experience" class="relative px-6 py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <p class="text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3">Experience &amp; Learning Journey</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-50">From production systems to data science</h2>
+      </div>
+
+      <div class="relative pl-10">
+        <div class="timeline-line absolute left-3 top-1 bottom-1 w-0.5"></div>
+
+        <ol class="space-y-10">
+
+          <li class="reveal relative">
+            <span class="absolute -left-10 top-1.5 w-4 h-4 rounded-full bg-indigo-500 shadow-glow ring-4 ring-base-bg"></span>
+            <div class="glass rounded-xl p-5">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                <h3 class="font-semibold text-slate-100">BSc Computer Technology</h3>
+                <span class="font-mono text-xs text-cyan-300/80">2001–2004</span>
+              </div>
+              <p class="text-sm text-slate-400">University of Computer Studies, Yangon</p>
+            </div>
+          </li>
+
+          <li class="reveal relative">
+            <span class="absolute -left-10 top-1.5 w-4 h-4 rounded-full bg-indigo-500 shadow-glow ring-4 ring-base-bg"></span>
+            <div class="glass rounded-xl p-5">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                <h3 class="font-semibold text-slate-100">Senior Developer</h3>
+                <span class="font-mono text-xs text-cyan-300/80">2004–2015</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-2">Electronic Service Company Limited</p>
+              <p class="text-sm text-slate-400">
+                Built enterprise Java/PHP applications for core banking, POS/inventory
+                (FIFO/LIFO/average-cost), and payroll; data modeling, cleaning, and
+                validation with Python/Pandas and MySQL.
+              </p>
+            </div>
+          </li>
+
+          <li class="reveal relative">
+            <span class="absolute -left-10 top-1.5 w-4 h-4 rounded-full bg-blue-500 shadow-glow ring-4 ring-base-bg"></span>
+            <div class="glass rounded-xl p-5">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                <h3 class="font-semibold text-slate-100">MBA</h3>
+                <span class="font-mono text-xs text-cyan-300/80">2014–2016</span>
+              </div>
+              <p class="text-sm text-slate-400">University of Economics, Yangon</p>
+            </div>
+          </li>
+
+          <li class="reveal relative">
+            <span class="absolute -left-10 top-1.5 w-4 h-4 rounded-full bg-cyan-500 shadow-glow ring-4 ring-base-bg"></span>
+            <div class="glass rounded-xl p-5">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                <h3 class="font-semibold text-slate-100">Team Lead (Open Source)</h3>
+                <span class="font-mono text-xs text-cyan-300/80">2018–2023</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-2">Future Hub Company Limited</p>
+              <p class="text-sm text-slate-400">
+                Supervised development teams; built Power BI and Excel dashboards from
+                MySQL and application logs tracking delivery metrics, defect trends,
+                and resource allocation.
+              </p>
+            </div>
+          </li>
+
+          <li class="reveal relative">
+            <span class="absolute -left-10 top-1.5 w-4 h-4 rounded-full bg-purple-500 shadow-glow ring-4 ring-base-bg"></span>
+            <div class="glass rounded-xl p-5">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                <h3 class="font-semibold text-slate-100">MSc Data Science, AI &amp; Digital Business</h3>
+                <span class="font-mono text-xs text-cyan-300/80">2024–2025</span>
+              </div>
+              <p class="text-sm text-slate-400">GISMA University of Applied Sciences, Potsdam · Completed</p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative px-6 py-24 sm:py-32">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="reveal glass-strong rounded-3xl p-12 shadow-glow">
+        <p class="text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3">Contact</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-50 mb-4">Let's talk data</h2>
+        <p class="text-slate-400 mb-10 max-w-xl mx-auto">
+          Open to Data Analyst, Data Scientist, and Developer roles. The fastest way
+          to reach me is LinkedIn or GitHub.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://www.linkedin.com/in/myathidahtut/" target="_blank" rel="noopener"
+             class="btn-primary rounded-xl px-7 py-3.5 font-semibold text-white shadow-glow w-full sm:w-auto">
+            Message on LinkedIn
+          </a>
+          <a href="https://github.com/myathidahtut" target="_blank" rel="noopener"
+             class="btn-ghost rounded-xl px-7 py-3.5 font-semibold text-slate-200 w-full sm:w-auto">
+            GitHub ↗
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <span>Mya Thida Htut · Berlin</span>
+<footer class="relative px-6 py-10 text-center text-sm text-slate-400 border-t border-slate-800/60">
+  <p>&copy; <span id="year"></span> Mya Thida Htut · Berlin</p>
 </footer>
 
-<script src="assets/js/script.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Scroll progress bar ---------- */
+  var progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  /* ---------- Typing effect ---------- */
+  var phrases = [
+    'Data Analyst & Data Scientist',
+    '15 years of software engineering',
+    'NLP · Machine Learning · BI',
+    'MSc Data Science, AI & Digital Business',
+    'Turning raw data into decisions'
+  ];
+  var typingEl = document.getElementById('typing-text');
+
+  if (reduceMotion) {
+    typingEl.textContent = phrases[0];
+  } else if (typingEl) {
+    var phraseIdx = 0, charIdx = 0, deleting = false;
+    var TYPE_SPEED = 55, DELETE_SPEED = 30, HOLD_TIME = 1600, GAP_TIME = 400;
+
+    function tick() {
+      var current = phrases[phraseIdx];
+      if (!deleting) {
+        charIdx++;
+        typingEl.textContent = current.slice(0, charIdx);
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(tick, HOLD_TIME);
+          return;
+        }
+        setTimeout(tick, TYPE_SPEED);
+      } else {
+        charIdx--;
+        typingEl.textContent = current.slice(0, charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(tick, GAP_TIME);
+          return;
+        }
+        setTimeout(tick, DELETE_SPEED);
+      }
+    }
+    setTimeout(tick, 300);
+  }
+
+  /* ---------- Scroll reveal + skill bar fill ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    document.querySelectorAll('.skill-fill').forEach(function (bar) {
+      bar.style.width = bar.getAttribute('data-target') + '%';
+    });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          var fills = entry.target.querySelectorAll('.skill-fill');
+          fills.forEach(function (bar) {
+            bar.style.width = bar.getAttribute('data-target') + '%';
+          });
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- Smooth scroll for in-page anchors (fallback for browsers ignoring CSS) ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = link.getAttribute('href');
+      if (id.length > 1) {
+        var target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  /* ---------- Live GitHub star/fork badges (public REST API, curated repos only) ---------- */
+  var cards = document.querySelectorAll('#project-grid [data-repo]');
+  cards.forEach(function (card) {
+    var repo = card.getAttribute('data-repo');
+    var owner = card.getAttribute('data-owner') || 'myathidahtut';
+    var badge = card.querySelector('.repo-badge');
+    if (!repo || !badge) return;
+
+    fetch('https://api.github.com/repos/' + owner + '/' + repo)
+      .then(function (res) {
+        if (!res.ok) throw new Error('GitHub API ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        var stars = typeof data.stargazers_count === 'number' ? data.stargazers_count : 0;
+        var forks = typeof data.forks_count === 'number' ? data.forks_count : 0;
+        badge.textContent = '★ ' + stars + '  ⑂ ' + forks;
+      })
+      .catch(function () {
+        /* Graceful fallback: silently leave badge empty if API fails or rate-limits */
+        badge.textContent = '';
+      });
+  });
+
+})();
+</script>
+
 </body>
 </html>
