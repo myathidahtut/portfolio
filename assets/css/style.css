@@ -120,9 +120,46 @@ a { color: inherit; }
   max-width: var(--container);
   margin-inline: auto;
   padding: clamp(4rem, 12vh, 8rem) 0 clamp(3rem, 8vh, 5rem);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(2rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.hero__col {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  min-width: 0;
+}
+
+.hero__portrait {
+  margin: 0;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero__portrait img {
+  width: clamp(9rem, 14vw, 12.5rem);
+  height: clamp(9rem, 14vw, 12.5rem);
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  filter: grayscale(0.15) contrast(1.03);
+}
+
+.portrait__tag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-align: center;
 }
 
 .hero__plate {
@@ -274,6 +311,87 @@ a { color: inherit; }
 
 .timeline__role { font-weight: 600; }
 .timeline__org { color: var(--muted); font-size: 0.9375rem; }
+
+/* ==========================================================================
+   Domains shipped
+   ========================================================================== */
+.domains {
+  margin-top: clamp(2.5rem, 6vh, 4rem);
+  padding-top: clamp(2rem, 5vh, 3rem);
+  border-top: 1px solid var(--border);
+}
+
+.domains__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.domains__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.9rem 2.5rem;
+}
+
+.domains__list li {
+  color: var(--ink-dim);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.domains__list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.domains__term {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Ledger stats (quantified résumé claims)
+   ========================================================================== */
+.ledger-stats {
+  margin-top: clamp(2.5rem, 6vh, 3.5rem);
+  padding-top: clamp(2rem, 5vh, 3rem);
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.ledger-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ledger-stat__value {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+  color: var(--primary);
+  line-height: 1;
+}
+
+.ledger-stat__label {
+  font-size: 0.875rem;
+  color: var(--muted);
+  max-width: 28ch;
+}
 
 /* ==========================================================================
    Log (project entries — ledger rows, not cards)
@@ -429,6 +547,13 @@ a { color: inherit; }
 .contact h2 { font-size: clamp(2rem, 3vw + 1rem, 3.25rem); font-style: italic; }
 .contact p { color: var(--ink-dim); }
 
+.contact__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
@@ -470,7 +595,27 @@ body.reveal-ready [data-reveal].is-visible {
   .nav__links { gap: 1rem; }
   .nav__links a { font-size: 0.8125rem; }
 
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__portrait {
+    justify-self: start;
+    flex-direction: row;
+    gap: 1rem;
+    order: -1;
+  }
+
+  .hero__portrait img {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .portrait__tag { text-align: left; }
+
   .record { grid-template-columns: 1fr; }
+
+  .domains__list { grid-template-columns: 1fr; }
 
   .log__entry {
     grid-template-columns: 1fr;

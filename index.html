@@ -29,37 +29,49 @@
 <main id="top">
 
   <section class="hero">
-    <div class="hero__plate" data-reveal>
-      <span class="plate__no">No. GH1037827</span>
-      <span class="plate__loc">Berlin, DE</span>
-    </div>
-    <h1 class="hero__title" data-reveal>
-      Mya Thida Htut
-    </h1>
-    <p class="hero__role" data-reveal>Software Engineer transitioning into Data Science &amp; AI</p>
-    <p class="hero__lede" data-reveal>
-      Fifteen years spent building the systems companies run on.
-      Now building the instruments to read what their data says:
-      one measured, published result at a time.
-    </p>
-    <div class="hero__actions" data-reveal>
-      <a href="#log" class="btn btn--primary">Read the log</a>
-      <a href="https://github.com/myathidahtut" class="btn btn--ghost" target="_blank" rel="noopener">GitHub ↗</a>
+    <div class="hero__grid">
+      <div class="hero__col">
+        <div class="hero__plate" data-reveal>
+          <span class="plate__no">No. GH1037827</span>
+          <span class="plate__loc">Berlin, DE</span>
+        </div>
+        <h1 class="hero__title" data-reveal>
+          Mya Thida Htut
+        </h1>
+        <p class="hero__role" data-reveal>Software Engineer transitioning into Data Science &amp; AI</p>
+        <p class="hero__lede" data-reveal>
+          Fifteen years spent building the systems companies run on.
+          Now building the instruments to read what their data says:
+          one measured, published result at a time.
+        </p>
+        <div class="hero__actions" data-reveal>
+          <a href="#log" class="btn btn--primary">Read the log</a>
+          <a href="https://github.com/myathidahtut" class="btn btn--ghost" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/myathidahtut/" class="btn btn--ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+      <figure class="hero__portrait" data-reveal>
+        <img src="assets/img/profile.jpg" width="400" height="400" alt="Portrait of Mya Thida Htut" loading="eager" decoding="async">
+        <figcaption class="portrait__tag">EST. 2001 · MYANMAR → BERLIN</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section" id="record">
     <div class="section__head" data-reveal>
       <h2>Field Record</h2>
+      <p class="section__note">Twenty-one years, two countries, one thread: systems people depend on.</p>
     </div>
     <div class="record">
       <p class="record__bio" data-reveal>
-        Over a decade leading development teams and shipping production systems in
-        Java, PHP, and MySQL, including a UNDP-funded e-commerce platform for SMEs
-        in Kachin State and a property sales &amp; rental portal for one of Myanmar's
-        largest developers. Now based in Berlin, with a Master's in Data Science,
-        AI &amp; Digital Business (GISMA University of Applied Sciences) formalizing
-        the move from building software to interrogating the data it produces.
+        Fifteen years leading development teams and shipping production systems
+        across Yangon: core banking modules, point-of-sale and inventory control,
+        HR and payroll platforms, hospitality software, a real-estate sales &amp;
+        rental portal for one of Myanmar's largest developers, and a UNDP-funded
+        e-commerce marketplace for SMEs in Kachin State. Now based in Berlin, with
+        an MBA and a Master's in Data Science, AI &amp; Digital Business (GISMA
+        University of Applied Sciences, Potsdam) formalizing the move from
+        building software to interrogating the data it produces.
       </p>
 
       <ol class="timeline" data-reveal>
@@ -78,7 +90,44 @@
           <span class="timeline__role">MSc Data Science, AI &amp; Digital Business</span>
           <span class="timeline__org">GISMA University of Applied Sciences, Potsdam</span>
         </li>
+        <li class="timeline__entry">
+          <span class="timeline__date">2014–2016</span>
+          <span class="timeline__role">MBA</span>
+          <span class="timeline__org">University of Economics, Yangon</span>
+        </li>
+        <li class="timeline__entry">
+          <span class="timeline__date">2001–2004</span>
+          <span class="timeline__role">BSc Computer Technology</span>
+          <span class="timeline__org">University of Computer Studies, Yangon</span>
+        </li>
       </ol>
+    </div>
+
+    <div class="domains" data-reveal>
+      <span class="domains__label">Domains shipped</span>
+      <ul class="domains__list">
+        <li><span class="domains__term">Core banking</span> — accounts, loans, deposits, remittances, bill payments</li>
+        <li><span class="domains__term">POS &amp; inventory</span> — FIFO / LIFO / average-cost valuation logic</li>
+        <li><span class="domains__term">HR &amp; payroll</span> — full employee lifecycle processing</li>
+        <li><span class="domains__term">Hospitality</span> — booking &amp; property operations platforms</li>
+        <li><span class="domains__term">Real estate</span> — sales &amp; rental portal, major Myanmar developer</li>
+        <li><span class="domains__term">SME marketplace</span> — UNDP-funded e-commerce, Kachin State</li>
+      </ul>
+    </div>
+
+    <div class="ledger-stats" data-reveal>
+      <div class="ledger-stat">
+        <span class="ledger-stat__value">25%</span>
+        <span class="ledger-stat__label">increase in user satisfaction scores</span>
+      </div>
+      <div class="ledger-stat">
+        <span class="ledger-stat__value">40%</span>
+        <span class="ledger-stat__label">reduction in manual reporting effort via SQL-driven dashboards</span>
+      </div>
+      <div class="ledger-stat">
+        <span class="ledger-stat__value">15%</span>
+        <span class="ledger-stat__label">gain in processing efficiency</span>
+      </div>
     </div>
   </section>
 
@@ -225,19 +274,19 @@
     <div class="instruments" data-reveal>
       <div class="instrument-group">
         <h3>Languages</h3>
-        <p>Python · SQL · Java · PHP</p>
+        <p>Python · SQL · Java · Java Swing · PHP · XML</p>
       </div>
       <div class="instrument-group">
         <h3>Data &amp; ML</h3>
-        <p>pandas · scikit-learn · TensorFlow · PyTorch · Hugging Face · spaCy</p>
+        <p>pandas · NumPy · scikit-learn · TensorFlow · PyTorch · Hugging Face · spaCy</p>
       </div>
       <div class="instrument-group">
-        <h3>Visualization</h3>
-        <p>Plotly · Seaborn · Streamlit · Chart.js</p>
+        <h3>Visualization &amp; BI</h3>
+        <p>Power BI · Plotly · Seaborn · Matplotlib · Jasper Report · Excel · Streamlit · Chart.js</p>
       </div>
       <div class="instrument-group">
         <h3>Systems</h3>
-        <p>MySQL · Flask · Git</p>
+        <p>MySQL · advanced SQL &amp; schema design · Flask · Linux (Red Hat) · Apache · Git</p>
       </div>
     </div>
   </section>
@@ -246,7 +295,10 @@
     <div class="contact" data-reveal>
       <h2>Get in touch</h2>
       <p>Based in Berlin, open to Data Analyst, Data Scientist, and Developer roles.</p>
-      <a href="https://github.com/myathidahtut" class="btn btn--primary" target="_blank" rel="noopener">GitHub ↗</a>
+      <div class="contact__actions">
+        <a href="https://github.com/myathidahtut" class="btn btn--primary" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/myathidahtut/" class="btn btn--ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
     </div>
   </section>
 
