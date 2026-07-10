@@ -528,7 +528,7 @@
         </article>
 
         <!-- 3 -->
-        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="disease-outbreak-prediction" data-owner="masood-ahmed-k">
+        <article class="reveal glass rounded-2xl p-7 card-hover flex flex-col" data-repo="disease-outbreak-prediction">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-medium tracking-wide uppercase text-cyan-300/90">MSc Thesis / Published</span>
             <span class="repo-badge text-xs text-slate-400 font-mono"></span>
@@ -544,7 +544,7 @@
             <span class="mx-1 text-slate-600">|</span>
             <a href="https://www.researchgate.net/publication/400596744_Predicting_Disease_Outbreaks_Using_Machine_Learning_and_Public_Health_Data" target="_blank" rel="noopener" class="underline decoration-dotted hover:text-cyan-300 transition-colors">ResearchGate thesis page</a>
           </p>
-          <a href="https://github.com/masood-ahmed-k/disease-outbreak-prediction" target="_blank" rel="noopener"
+          <a href="https://github.com/myathidahtut/disease-outbreak-prediction" target="_blank" rel="noopener"
              class="btn-ghost self-start rounded-lg px-4 py-2 text-sm text-slate-200">Repo -></a>
         </article>
 
@@ -883,13 +883,31 @@
     });
   });
 
-  /* ---------- Live GitHub star/fork badges (public REST API, curated repos only) ---------- */
+  /* ---------- GitHub star/fork badges: cached 12h, hidden when zero ----------
+     Cached in localStorage so repeat visits make no API calls, which keeps us
+     well clear of GitHub's 60/hour unauthenticated rate limit. The badge is
+     only rendered when there is actually something to show. */
   var cards = document.querySelectorAll('#project-grid [data-repo]');
+  var STATS_TTL = 12 * 60 * 60 * 1000;
+
+  function renderRepoBadge(badge, stars, forks) {
+    badge.textContent = (stars > 0 || forks > 0) ? ('★ ' + stars + '  ⑂ ' + forks) : '';
+  }
+
   cards.forEach(function (card) {
     var repo = card.getAttribute('data-repo');
     var owner = card.getAttribute('data-owner') || 'myathidahtut';
     var badge = card.querySelector('.repo-badge');
     if (!repo || !badge) return;
+
+    var key = 'ghstats:' + owner + '/' + repo;
+    try {
+      var cached = JSON.parse(localStorage.getItem(key) || 'null');
+      if (cached && (Date.now() - cached.t) < STATS_TTL) {
+        renderRepoBadge(badge, cached.s, cached.f);
+        return;
+      }
+    } catch (e) { /* localStorage unavailable - fall through to fetch */ }
 
     fetch('https://api.github.com/repos/' + owner + '/' + repo)
       .then(function (res) {
@@ -899,7 +917,8 @@
       .then(function (data) {
         var stars = typeof data.stargazers_count === 'number' ? data.stargazers_count : 0;
         var forks = typeof data.forks_count === 'number' ? data.forks_count : 0;
-        badge.textContent = '★ ' + stars + '  ⑂ ' + forks;
+        try { localStorage.setItem(key, JSON.stringify({ s: stars, f: forks, t: Date.now() })); } catch (e) {}
+        renderRepoBadge(badge, stars, forks);
       })
       .catch(function () {
         /* Graceful fallback: silently leave badge empty if API fails or rate-limits */
